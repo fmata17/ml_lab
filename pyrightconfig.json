@@ -1,0 +1,7 @@
+// avoid using pylance typechecking in jupyter notebooks since its not as optimized as for .py files
+{
+  "ignore": ["**/*.ipynb"],
+  "reportAttributeAccessIssue": "none",
+  "reportPossiblyUnboundVariable": "none",
+    "reportUnboundVariable": "none",
+}
