@@ -16,11 +16,10 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from scipy import stats
 
+
 # ============================================================
 # 1. BASIC DATA OVERVIEW
 # ============================================================
-
-
 def data_overview(df: pd.DataFrame):
     """
     Quick overview of dataset:
@@ -50,8 +49,7 @@ def plot_target_relationships(df: pd.DataFrame, target="price", ncols=3):
     n = len(features)
     nrows = (n + ncols - 1) // ncols
 
-    fig, axes = plt.subplots(nrows=nrows, ncols=ncols,
-                             figsize=(6*ncols, 4*nrows))
+    fig, axes = plt.subplots(nrows=nrows, ncols=ncols, figsize=(6 * ncols, 4 * nrows))
     axes = axes.flatten()
 
     for i, col in enumerate(features):
@@ -59,10 +57,15 @@ def plot_target_relationships(df: pd.DataFrame, target="price", ncols=3):
         unique_vals = df[col].nunique()
 
         if pd.api.types.is_numeric_dtype(df[col]) and unique_vals > 10:
-            sns.scatterplot(x=df[col], y=df[target],
-                            ax=ax, alpha=0.6, color="blue")
-            sns.regplot(x=df[col], y=df[target], ax=ax,
-                        scatter=False, color="red", line_kws={"linewidth": 2})
+            sns.scatterplot(x=df[col], y=df[target], ax=ax, alpha=0.6, color="blue")
+            sns.regplot(
+                x=df[col],
+                y=df[target],
+                ax=ax,
+                scatter=False,
+                color="red",
+                line_kws={"linewidth": 2},
+            )
             ax.set_title(f"{target} vs {col} (scatter)")
         else:
             sns.boxplot(x=df[col], y=df[target], ax=ax)
@@ -99,8 +102,13 @@ def plot_feature_vs_target(df: pd.DataFrame, feature: str, target="price"):
     if pd.api.types.is_numeric_dtype(df[feature]) and unique_vals > 10:
         # Scatter + regression line
         sns.scatterplot(x=df[feature], y=df[target], alpha=0.6, color="blue")
-        sns.regplot(x=df[feature], y=df[target], scatter=False,
-                    color="red", line_kws={"linewidth": 2})
+        sns.regplot(
+            x=df[feature],
+            y=df[target],
+            scatter=False,
+            color="red",
+            line_kws={"linewidth": 2},
+        )
         plt.title(f"{target} vs {feature} (scatter)")
     else:
         # Boxplot for categorical/discrete
@@ -121,13 +129,18 @@ def correlation_heatmap(df: pd.DataFrame, target="price"):
     Pearson correlation matrix for numeric features.
     Highlights linear relationships.
     """
-    corr = df.corr()
+    # keep only numeric columns
+    num_df = df.select_dtypes(include="number")
+    # ensure target is present and numeric
+    if target not in num_df.columns:
+        raise ValueError(f"Target '{target}' must be a numeric column. "
+                         f"Available numeric columns: {list(num_df.columns)}")
+    corr = num_df.corr()
     plt.figure(figsize=(4, 2))
     sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f", cbar=True)
     plt.title("Correlation Heatmap")
     plt.show()
-    print("\nCorrelations with target:\n",
-          corr[target].sort_values(ascending=False))
+    print("\nCorrelations with target:\n", corr[target].sort_values(ascending=False))
 
     # self
     target_corr = corr[target].sort_values(ascending=False)
@@ -147,8 +160,9 @@ def anova_tests(df: pd.DataFrame, target="price"):
     Tests whether mean target differs significantly across groups.
     High F-statistic + low p-value → strong relationship.
     """
-    cat_features = [col for col in df.columns if df[col].dtype ==
-                    "object" or df[col].nunique() < 10]
+    cat_features = [
+        col for col in df.columns if df[col].dtype == "object" or df[col].nunique() < 10
+    ]
 
     results = {}
     for col in cat_features:
@@ -183,8 +197,9 @@ def feature_importance_forest(X, y):
     """
     model = RandomForestRegressor(n_estimators=200, random_state=42)
     model.fit(X, y)
-    importances = pd.Series(model.feature_importances_,
-                            index=X.columns).sort_values(ascending=False)
+    importances = pd.Series(model.feature_importances_, index=X.columns).sort_values(
+        ascending=False
+    )
 
     plt.figure(figsize=(10, 6))
     sns.barplot(x=importances, y=importances.index)
