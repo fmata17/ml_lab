@@ -34,7 +34,7 @@ def load_dataset(
             Testing labels
     """
     if dataset == "iris":
-        bunch = datasets.load_iris()  # sklearn bunch
+        bunch = datasets.load_iris(as_frame=True)  # sklearn bunch
         X = bunch.data
         y = bunch.target
         df = bunch.frame
@@ -44,7 +44,7 @@ def load_dataset(
         y = df.iloc[:, :1]
     elif dataset == "mnist":
         bunch = datasets.fetch_openml(
-            'mnist_784', version=1, as_frame=False)  # sklearn bunch
+            'mnist_784', version=1, as_frame=True)  # sklearn bunch
         X = bunch.data
         y = bunch.target
         df = bunch.frame
