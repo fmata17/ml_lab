@@ -42,6 +42,12 @@ def load_dataset(
         df = sns.load_dataset(dataset)  # Pandas df
         X = df.iloc[:, 1:]
         y = df.iloc[:, :1]
+    elif dataset == "mnist":
+        bunch = datasets.fetch_openml(
+            'mnist_784', version=1, as_frame=False)  # sklearn bunch
+        X = bunch.data
+        y = bunch.target
+        df = bunch.frame
     else:
         raise NotImplementedError(f"Dataset '{dataset}' is not yet supported.")
 
@@ -132,7 +138,8 @@ def calculate_variance(
                 squared_diff_sum += (x - means[col]) ** 2
                 count += 1
         denom = (count - 1) if sample else count
-        variances[col] = (squared_diff_sum / denom) if denom > 0 else float("nan")
+        variances[col] = (squared_diff_sum /
+                          denom) if denom > 0 else float("nan")
     return variances
 
 

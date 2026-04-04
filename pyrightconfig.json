@@ -3,5 +3,5 @@
   "ignore": ["**/*.ipynb"],
   "reportAttributeAccessIssue": "none",
   "reportPossiblyUnboundVariable": "none",
-    "reportUnboundVariable": "none",
+  "reportUnboundVariable": "none"
 }
