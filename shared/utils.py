@@ -58,7 +58,7 @@ def load_dataset(
     print(
         f"Loaded '{dataset}' with {X.shape[0]} samples and {X.shape[1]} features each."
         f"\nTraining set: {X_train.shape[0]} samples"
-        f"\nTesting set: {X_test.shape[0]} samples\n"
+        f"\nTesting set: {X_test.shape[0]} samples"
     )
     return df, X_train, X_test, y_train, y_test
 
