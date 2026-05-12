@@ -19,3 +19,6 @@ venv.bak/
 
 # PyCharm
 .idea/
+
+# Downloaded datasets
+data/
