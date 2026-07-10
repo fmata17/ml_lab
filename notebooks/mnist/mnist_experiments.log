@@ -1,0 +1,163 @@
+============================================================
+SESSION: 2026-04-27 03:25:36
+============================================================
+[TRANSFORMS]
+  - ToImage()
+  - ToDtype(scale=True)
+  - Normalize(mean=[tensor(0.1307)], std=[tensor(0.3081)], inplace=False)
+
+[MODEL ARCHITECTURE]
+MNISTBaseline(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (fc1): Linear(in_features=1568, out_features=10, bias=True)
+)
+Number of Epochs: 1
+Total Trainable Params: 20,490
+
+[RESULTS]
+  Final Training Loss: 0.1913
+  Test Accuracy:       97.98%
+============================================================
+
+============================================================
+SESSION: 2026-04-27 03:31:16
+============================================================
+[TRANSFORMS]
+  - ToImage()
+  - ToDtype(scale=True)
+  - Normalize(mean=[tensor(0.1307)], std=[tensor(0.3081)], inplace=False)
+
+[MODEL ARCHITECTURE]
+MNISTBaseline(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (fc1): Linear(in_features=1568, out_features=10, bias=True)
+)
+Number of Epochs: 10
+Total Trainable Params: 20,490
+
+[RESULTS]
+  Final Training Loss: 0.0125
+  Test Accuracy:       98.89%
+============================================================
+
+============================================================
+SESSION: 2026-04-27 04:00:56
+============================================================
+[TRANSFORMS]
+  - ToImage()
+  - ToDtype(scale=True)
+  - Normalize(mean=[tensor(0.1307)], std=[tensor(0.3081)], inplace=False)
+
+[MODEL ARCHITECTURE]
+MNISTBaseline(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (fc1): Linear(in_features=1568, out_features=10, bias=True)
+)
+Number of Epochs: 1
+Total Trainable Params: 20,490
+
+[RESULTS]
+  Final Training Loss: 0.1873
+  Test Accuracy:       98.12%
+  Correct: 9812		Incorrect: 188
+============================================================
+
+============================================================
+SESSION: 2026-04-27 04:19:43
+============================================================
+[TRANSFORMS]
+  - ToImage()
+  - ToDtype(scale=True)
+  - Normalize(mean=[tensor(0.1307)], std=[tensor(0.3081)], inplace=False)
+
+[MODEL ARCHITECTURE]
+MNISTBaseline(
+  (conv1): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (fc1): Linear(in_features=6272, out_features=10, bias=True)
+)
+Number of Epochs: 1
+Total Trainable Params: 63,050
+
+[RESULTS]
+  Final Training Loss: 0.1783
+  Test Accuracy:       97.48%
+  Correct: 9748		Incorrect: 252
+============================================================
+
+============================================================
+SESSION: 2026-04-27 04:51:02
+============================================================
+[TRANSFORMS]
+  - ToImage()
+  - ToDtype(scale=True)
+  - Normalize(mean=[tensor(0.1307)], std=[tensor(0.3081)], inplace=False)
+
+[MODEL ARCHITECTURE]
+MNISTBaseline(
+  (conv1): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (fc1): Linear(in_features=6272, out_features=10, bias=True)
+)
+Number of Epochs: 1
+Total Trainable Params: 63,050
+
+[RESULTS]
+  Final Training Loss: 0.0690
+  Test Accuracy:       98.17%
+  Correct: 9817		Incorrect: 183
+============================================================
+
+============================================================
+SESSION: 2026-04-27 05:00:55
+============================================================
+[TRANSFORMS]
+  - ToImage()
+  - ToDtype(scale=True)
+  - Normalize(mean=[tensor(0.1307)], std=[tensor(0.3081)], inplace=False)
+
+[MODEL ARCHITECTURE]
+MNISTBaseline(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (conv3): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (fc1): Linear(in_features=576, out_features=10, bias=True)
+)
+Number of Epochs: 1
+Total Trainable Params: 29,066
+
+[RESULTS]
+  Final Training Loss: 0.1901
+  Test Accuracy:       98.24%
+  Correct: 9824		Incorrect: 176
+============================================================
+
+============================================================
+SESSION: 2026-04-27 13:02:18
+============================================================
+[TRANSFORMS]
+  - ToImage()
+  - ToDtype(scale=True)
+  - Normalize(mean=[tensor(0.1307)], std=[tensor(0.3081)], inplace=False)
+
+[MODEL ARCHITECTURE]
+MNISTBaseline(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (fc1): Linear(in_features=3136, out_features=10, bias=True)
+)
+Number of Epochs: 1
+Total Trainable Params: 31,530
+
+[RESULTS]
+  Final Training Loss: 0.2036
+  Test Accuracy:       97.16%
+  Correct: 9716		Incorrect: 284
+============================================================
